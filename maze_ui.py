@@ -2,7 +2,7 @@ import panel as pn
 import math
 pn.extension()
 
-select = pn.widget.Select(name = "Select",options={"25":25,
+select = pn.widgets.Select(name = "Select",options={"25":25,
                                                    "36":36,
                                                    "49":49,
                                                    "64":64,
@@ -17,4 +17,4 @@ button.on_click(on_click)
 app = pn.Column(select,button)
 
 app.servable()
-pn.serve({"maze generator": app})
+pn.serve(app,show=True)
