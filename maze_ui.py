@@ -3,14 +3,13 @@ import math
 pn.extension()
 
 select = pn.widgets.Select(name = "Select",options={"25":25,
-                                                   "36":36,
                                                    "49":49,
-                                                   "64":64,
-                                                   "81":82,
-                                                   "100":100})
+                                                   "81":81,
+                                                   "121":121})
 button = pn.widgets.Button(name="Generate Maze")
+
 def on_click(event):
-    print(f"Generating a maze with size {int(math.sqrt(select.value))} x {int(math.sqrt(select.value))}")
+    print(f"Generating a maze with dimensions {int(math.sqrt(select.value))} x {int(math.sqrt(select.value))}")
 
 button.on_click(on_click)
 
