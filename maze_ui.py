@@ -9,6 +9,8 @@ select = pn.widgets.Select(name = "Select",options={"25":25,
 button = pn.widgets.Button(name="Generate Maze")
 
 def on_click(event):
+    global numberSquare
+    numberSquare = select.value
     print(f"Generating a maze with dimensions {int(math.sqrt(select.value))} x {int(math.sqrt(select.value))}")
 
 button.on_click(on_click)

@@ -1,8 +1,9 @@
 import numpy as np
 import math
-import panel as pn
+import maze_ui
 
-numberSquares = 49
+numberSquares = maze_ui.numberSquare
+print(numberSquares)
 maze = np.ones((int(math.sqrt(numberSquares)),int(math.sqrt(numberSquares))),dtype = "int32")
 secondary_maze = np.zeros((int(math.sqrt(numberSquares))-2,int(math.sqrt(numberSquares))-2),dtype = "int32")
 
@@ -17,5 +18,4 @@ def initalize_maze(maze,secondary_maze):
     print(maze)
 #endregion
 
-initalize_maze(maze,secondary_maze)
-#print(secondary_maze)
+#initalize_maze(maze,secondary_maze)
