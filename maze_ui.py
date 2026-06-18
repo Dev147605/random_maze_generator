@@ -5,7 +5,8 @@ pn.extension()
 select = pn.widgets.Select(name = "Select",options={"25":25,
                                                    "49":49,
                                                    "81":81,
-                                                   "121":121})
+                                                   "121":121,
+                                                   "169":169})
 button = pn.widgets.Button(name="Generate Maze")
 
 def on_click(event):

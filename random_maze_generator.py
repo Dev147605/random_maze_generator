@@ -17,23 +17,24 @@ def initalize_maze(maze,valid_maze):
     generating_maze(valid_maze)
 #endregion
 
+#region generating maze
 def generating_maze(valid_maze):
     starting_node = (0,0)
     target_node = (len(valid_maze)-1,len(valid_maze)-1)
     (current_node) = starting_node
     stack = [starting_node]
     visited = []
-    #while stack:
+    while stack:
         #right = current_node
         #print(current_node, type(current_node))
-    (row,col) = current_node
-    neighbours = [(row+1,col),
-                    (row-1,col),
-                    (row,col+1),
-                    (row,col-1)]
-    #right left down up
+        (row,col) = current_node
+        neighbours = [(row+1,col),
+                        (row-1,col),
+                        (row,col+1),
+                        (row,col-1)]
+        #right left down up
     print(neighbours)
-
+#endregion
 
 
 initalize_maze(maze,valid_maze)
