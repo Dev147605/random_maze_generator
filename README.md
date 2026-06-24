@@ -45,7 +45,7 @@ The reason for this is because the calculation of the boundaries has to be appli
     valid_neighbours = []
 ```
 
-This array is used to work out the positions of the neighbours relative to the current position. 
+This array is used to work out the positions of the neighbours relative to the current position.
 
 The change ```(-1,0)``` is used to work out the up neighbour by decreasing the index of the **outer** array by 1 and keeping the index of the **inner** array constant. The same logic is also applicable to ```(1,0)``` but insteads checks the down neighbour.
 
@@ -82,3 +82,47 @@ To keep track of the nodes that have already been visited previously all we have
             row,col = current_pos
             valid_maze[row,col] = 1
 ```
+
+All of these sections mentioned take place in an outer while loop which runs until the pointer of the current node is equal to the pointer of the target node at which point the loop ends as well as the path generation.
+
+### Outputting the Final Maze (Matrix)
+
+The function used to generate the maze for the **inner** maze returns the **maze** generated to the main function where it's initially called so the **inner** maze can be added to the **outer** maze, and to achieve this I implemented matrix splicing using **NumPy**.
+
+```Python
+    inner_maze = generate_inner_maze(numberSquares)
+    maze[1:int(math.sqrt(numberSquares)) - 1,1:int(math.sqrt(numberSquares)) - 1] = inner_maze
+```
+
+This piece of code attaches the **inner** maze to the **outer** maze to the corners which are dependent on the dimensions of the maze. Once this was done I was then able to output the final maze graphically using **Matplotlib**.
+
+```Python
+    fig, ax = plt.subplots(figsize=(5, 5))
+    cmap = mcolors.ListedColormap(["black", "white"])
+    ax.imshow(maze, cmap=cmap, vmin=0, vmax=1)
+    ax.axis("off")
+    plt.tight_layout()
+```
+
+This is the code which implements **Matplotlib** which is used to output the maze.
+
+- The first line is used for initialisation.
+
+  - ```fig``` is the entire figure
+  - ```ax``` is the axes inside of the figure
+  - ```figsize = (5,5)``` sets the canvas size in inches
+
+- The second line is used to create a custom colourmap with exactly 2 colours.
+
+  - ```0``` maps to ```"black"```
+  - ```1``` maps to ```"white"```
+
+  - ```ListedColormap``` takes a list of colours in order, so the first colour always maps to the lowest value and the last to the highest.
+
+- The third line is used to render the numpy array as an image on the axes.
+
+  - ```cmap=cmap``` is used to ensure it uses the colourmap
+  - ```vmin=0, vmax=1``` tells it the value range
+
+- The fourth line just hides the axis lines and labels around the image.
+- The last line automatically removes the whitespace around the image, so the maze fills the canvas cleanly.
