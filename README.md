@@ -61,4 +61,24 @@ The change ```(0,1)``` is used to work out the right neighbour by keeping the in
                     valid_neighbours.append(new_pos)
 ```
 
-This piece of code in the maze generation algorithm is used to work out which of the possible neighbours of the current position in the **inner** maze is valid.
+This piece of code in the maze generation algorithm is used to work out which of the possible neighbours of the current position in the **inner** maze is valid. These valid neighbours are then appended to an array where a random selection can take place so the next node can be chosen.
+
+```Python
+    next_position = random.choice(valid_neighbours)
+```
+
+This only runs when the list of valid neighbours of the current node is 0, to ensure that we don't have any loops within the path.
+
+### Tracking Visited Nodes
+
+To keep track of the nodes that have already been visited previously all we have to do is add the current node to the set where the previous nodes have been added to. I chose a set for this because a set ensures there are no repeating values which further prevents any loops within the path. After this we just need to adjust the pointers of the current node to change it to the next node to be visited. After this we just need to change the value stored in that index in the array to 1 to show visually that it's part of the path chosen.
+
+```Python
+    #adds the current pos to the visited set
+    visited.add(current_pos)
+            stack.append(current_pos)
+            #changes the position of the current pos to the next pos
+            current_pos = next_position
+            row,col = current_pos
+            valid_maze[row,col] = 1
+```
