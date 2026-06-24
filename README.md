@@ -131,5 +131,38 @@ This is the code which implements **Matplotlib** which is used to output the maz
 
 There is no specific requirement to run it, this is because it can be ran by simply running **maze_ui.py**, where there will be a web application to allow the user to select the dimensions of the maze.
 
-## Further development 
+## Further development
 
+At this current time of writing I won't be doing any further developement as I'd like to be able to give attention to other projects. However, this project acts a stepping stone this is because I'd like to be able to implement machine learning for this maze generation program.
+
+These are some of the ways I'd like to implement machine learning in the future.
+
+1. Learning to Generate Better Mazes
+
+    - Instead of relying on a random algorithm, a machine learning model could be trained to generate mazes with specific characteristics.
+        - Easy, medium or hard difficulty levels
+        - Longer or shorter solution paths
+        - More or fewer dead ends
+        - Different maze styles or layouts
+    - The model would learn from a dataset of mazes and their properties, then predict what structure shoul be generated to achieve a desired difficulty.
+
+2. Maze difficult prediction
+
+    - The model could examine features such as:
+        - Number of dead ends
+        - Length of the shortest path
+        - Number of junctions
+        - Maze dimensions
+        - Branchine factor
+    - It could then estimate a difficulty score for the maze.
+    - This would allow users to request a maze of a particular difficults and have the system generate mazes until one matches the desired rating.
+
+3. Reinforcment Learning Maze Solver
+
+    - Another possibilirt is creating an agent that learns how to solve mazes
+    - Rather than following a traditional pathfinding algorithm, the agent would:
+        - Explore the maze
+        - Receive rewards for moving closer to the exit
+        - Gradually learn strategies for navigating unseen mazes
+
+Machine learning techniques could be integrated to analyse generated mazes, estimate their difficulty, and eventually generate personalised mazes tailored to a user's skill leve. Reinforcement learning could also be explored to develop agents capable of solving mazes autnomously.
