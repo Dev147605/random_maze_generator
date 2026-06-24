@@ -5,11 +5,11 @@
 
 This project is a **Random Maze Generator / Path Finder** which finds a path from the starting point to the end point.
 
-## Why
+## Why?
 
 The purpose of this project was to gain some hands on experience with [**NumPy**](https://numpy.org/) as I plan to use it in further programming projects, as well as to experiment with GUI modules (such as [**Panel**](https://panel.holoviz.org/) and [**Matplotlib**](https://matplotlib.org/)) that will also be used in further projects.
 
-## How does it work?
+## How it works
 
 - The program first starts off by running a web interface which is created using the **Panel** module where the user can choose what they want the dimensions of the maze to be.
 - The outer maze is generated using the desired dimensions and it's filled with "walls" since the maze hasn't been generated yet.
@@ -126,3 +126,10 @@ This is the code which implements **Matplotlib** which is used to output the maz
 
 - The fourth line just hides the axis lines and labels around the image.
 - The last line automatically removes the whitespace around the image, so the maze fills the canvas cleanly.
+
+## Execution
+
+There is no specific requirement to run it, this is because it can be ran by simply running **maze_ui.py**, where there will be a web application to allow the user to select the dimensions of the maze.
+
+## Further development 
+
